@@ -13,32 +13,39 @@
         <button type="submit" class="btn"><a href="singUp.php">Sing Up</a></button>
         <button type="submit" class="btn"><a href="singUp.php">Sing In</a></button>
       </div>
-        <h2 class="title">ToDo List</h2>
-        <div class="input">
-            <input type="text" placeholder="Enter your task">
-            <button type="submit" class="btn"><i class="fa fa-plus"></i></button>
-        </div>
+            <form action="" method="post">
+                <h2 class="title">ToDo List</h2>
+                <div class="input">
+                    <input type="text" name="text" id="text" placeholder="Enter your task">
+                    <button type="submit" id="addTask" class="btn"><i class="fa fa-plus"></i></button>
+                </div>
+            </form>
         <div class="content">
             <ul>
-                <li>
-                    <span class="text">asdg</span>
-                    <i class="icon fa fa-trash"></i>
-                </li>
-
+                <?php require_once 'showTask.php'; ?>
                 <div class="pending-text">dbfdfbd 4</div>
             </ul>
         </div>
     </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<!--<script>
-  $(document).ready(function() {
-      $,ajax({
-          url: "showTask.php",
-          type: "POST",
-          success: function(data) 
-      })
-  });-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('#addTask').click(function() {
+        var text = $('#text').val();
+
+        $.ajax({
+            url: 'addTask.php',
+            type: 'POST',
+            cache: false,
+            data: {'text': text },
+            datatype: 'html',
+            success: function(data) {
+                if (data === true) {
+                document.reload(true);
+                }
+            }
+        });
+    });
 </script> 
 </body>
 </html>

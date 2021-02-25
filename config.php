@@ -1,7 +1,7 @@
 <?php
     $user = 'root';
     $password = 'root';
-    $db = 'bookingRestoran';
+    $db = 'hometask';
     $host = 'localhost';
     $port = 3306;
 
