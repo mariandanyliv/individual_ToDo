@@ -1,0 +1,21 @@
+.sign-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .input input:focus {
+    border-color: #6c5ce7;
+}
+
+.container .input  button.btn:hover {
+    opacity: 1;
+}
+
+.container .input input {
+    padding: 12px;
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: 3px;
+    font-size: 1rem;
+    transition: .3s;
+    outline: none;
+}

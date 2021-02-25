@@ -1,11 +1,19 @@
 <?php
-    $taskValue = trim(filter_var($_POST['taskValue'], FILTER_SANITIZE_STRING));
+    $login = trim(filter_var($_POST['login'], FILTER_SANITIZE_STRING));
+    $pass = trim(filter_var($_POST['pass'], FILTER_SANITIZE_STRING));
 
     require_once './config.php';
 
-    $sql = "INSERT INTO todoTask(title) VALUES (?)";
+    $sql = 'SELECT id FROM user WHERE login = :login && pass = :pass';
     $query = $pdo->prepare($sql);
-    $query->execute([$taskValue]);
+    $query->execute(['login' => $login, 'pass' => $pass]);
 
-    echo true;
+    $user = $query->fetch(PDO::FETCH_OBJ);
+    if ($user->id === 0) {
+       echo  'user not found';
+    } else {
+        setcookie('log', $login, time() + 3600 * 24 * 30, "/");
+        
+        echo 'ok';
+    }
 ?>
