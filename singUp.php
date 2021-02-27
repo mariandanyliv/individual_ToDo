@@ -20,11 +20,11 @@
                 <input type="email" name="email" id="email" class="form-control">
             </div>
             <div class="input">
-                <label for="login">Логін</label>
+                <label for="login">Login</label>
                 <input type="text" name="login" id="login" class="form-control">
             </div>
             <div class="input">
-                <label for="pass">Пароль</label>
+                <label for="pass">Password</label>
                 <input type="password" name="pass" id="pass" class="form-control">
             </div>
             <button type="submit" id="regUser" class="btn">Registr</button>
@@ -46,8 +46,10 @@
                 data: {'email': email, 'login': login, 'pass': pass },
                 datatype: 'html',
                 success: function(data) {
-                    if (data === true) {
-                    alert('ready');
+                    if (data === 'ok') {
+                    document.location.replace('./index.php')
+                    } else {
+                        alert (data);
                     }
                 }
             });

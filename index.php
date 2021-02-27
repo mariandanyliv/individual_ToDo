@@ -10,10 +10,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="reg">
-            <button type="submit" class="btn"><a href="singUp.php">Sing Up</a></button>
-            <button type="submit" class="btn"><a href="singIn.php">Sing In</a></button>
-        </div>
+        <?php 
+            if($_COOKIE['log'] == ''):
+        ?>
+            <div class="reg">
+                <button type="submit" class="btn"><a href="singUp.php">Sing Up</a></button>
+                <button type="submit" class="btn"><a href="singIn.php">Sing In</a></button>
+                <h2 class="title">ToDo List</h2>
+            </div>
+        <?php 
+            else:
+        ?>
+            <div class="reg">
+                <button type="submit" id="extBtn" class="btn">Exit</button>
+            </div>
         <form action="" method="post">
             <h2 class="title">ToDo List</h2>
             <div class="input">
@@ -24,9 +34,12 @@
         <div class="content">
             <ul>
                 <?php require_once 'showTask.php'; ?>
-                <div class="pending-text">dbfdfbd 4</div>
+                <div class="pending-text">You Have <?php echo $i; ?> tasks</div>
             </ul>
         </div>
+        <?php 
+            endif;
+        ?>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -41,12 +54,30 @@
                 data: {'text': text },
                 datatype: 'html',
                 success: function(data) {
-                    if (data === true) {
-                    document.reload(true);
+                    if (data == 'add') {
+                    document.location.reload(true);
+                    } else {
+                        alert(data);
                     }
                 }
             });
         });
+
+        $('#extBtn').click(function() {
+            $.ajax({
+                url: 'exit.php',
+                type: 'POST',
+                cache: false,
+                data: {},
+                dataType: 'html',
+                success: function(data) {
+                    if (data == 'ok') {
+                        document.location.reload(true);    
+                    }
+                }
+            });
+        });
+
     </script> 
 </body>
 </html>

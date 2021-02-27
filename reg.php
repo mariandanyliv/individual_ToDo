@@ -9,10 +9,10 @@
     $query->execute(['login' => $login, 'pass' => $pass]);
 
     $user = $query->fetch(PDO::FETCH_OBJ);
-    if ($user->id === 0) {
+    if ($user->id == 0) {
        echo  'user not found';
     } else {
-        setcookie('log', $login, time() + 3600 * 24 * 30, "/");
+        setcookie('log', $user->id, time() + 3600 * 24 * 30, "/");
         
         echo 'ok';
     }

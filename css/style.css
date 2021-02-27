@@ -78,3 +78,12 @@
     font-size: 1rem;
     text-transform: capitalize;
 }
+
+#extBtn {
+    background: red;
+}
+
+.checkbox::active {
+    color: #999!important;
+    text-decoration: line-through;
+}

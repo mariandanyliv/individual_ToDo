@@ -16,12 +16,12 @@
       <form action="" method="post" class="sign-form">
             <h2 class="title">Аuthorization</h2>
             <div class="input">
-                <label for="login">Логін</label>
+                <label for="login">Login</label>
                 <input type="text" name="login" id="login" class="form-control">
             </div>
             <div class="input">
                 <label for="pass">Пароль</label>
-                <input type="text" name="pass" id="pass" class="form-control">
+                <input type="password" name="pass" id="pass" class="form-control">
             </div>
             <button type="button" id="authUser" class="btn btn-success">Аuthor</button>
         </form>
