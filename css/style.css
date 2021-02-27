@@ -50,6 +50,11 @@
     color: #111;
     padding-left: 10px;
 }
+.container .content ul li .checked {
+    color: #111;
+    padding-left: 10px;
+    text-decoration: line-through;
+}
 
 .container .content ul li .icon {
     position: absolute;
@@ -81,9 +86,4 @@
 
 #extBtn {
     background: red;
-}
-
-.checkbox::active {
-    color: #999!important;
-    text-decoration: line-through;
 }

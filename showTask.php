@@ -9,11 +9,21 @@
     $query->execute([$userId]);
     $i = 0;
     while($row = $query->fetch(PDO::FETCH_OBJ)){  
+        if ($row->checked) {
         echo '<li>
-             <span class="text checkdox">'. $row->text.'</span>
-             <a href="./deleteTask.php?id='.$row->id.'"><button><i class="icon fa fa-trash"></i></button></a>
-
+                <input type="checkbox">
+                <span class="text checked">'. $row->text.'</span>
+                <a href="./deleteTask.php?id='.$row->id.'"><i class="icon fa fa-trash"></i></a>
+                <small>Create: ' . $row->datatime . ' </small>
             </li>';
+        } else {
+            echo '<li>
+            <input type="checkbox">
+            <span class="text">'. $row->text.'</span>
+            <a href="./deleteTask.php?id='.$row->id.'"><i class="icon fa fa-trash"></i></a>
+            <small>Create: ' . $row->datatime . ' </small>
+        </li>';
+        }
             $i++;
             } 
 
