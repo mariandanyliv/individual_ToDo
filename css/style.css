@@ -35,10 +35,10 @@
 .container .content ul li {
     position: relative;
     margin: 8px 0;
-    padding: 10px 0;
+    padding: 8px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     background: #f1f1f1;
     border-radius: 6px;
     border: 1px solid rgba(0, 0, 0, .1);
@@ -46,13 +46,29 @@
     overflow: hidden;
 }
 
-.container .content ul li .text {
-    color: #111;
-    padding-left: 10px;
+.content__head {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
 }
-.container .content ul li .checked {
-    color: #111;
+
+.container .content ul li .text {
     padding-left: 10px;
+    color: #111;
+    cursor: pointer;
+}
+.container .content ul li a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.container .content ul li.checked .text {
+    color: #fff;
+}
+
+.container .content ul li.checked {
+    background-color: green;
+    color: #fff;
     text-decoration: line-through;
 }
 
