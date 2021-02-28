@@ -13,7 +13,7 @@
         <button type="submit" class="btn"><a href="index.php">ToDo</a></button>
         <button type="submit" class="btn"><a href="singIn.php">Sing In</a></button>
       </div>
-      <form action="" method="post" class="sign-form">
+      <form action="" method="post" autocomplete="off" class="sign-form">
             <h2 class="title">Registration</h2>
             <div class="input">
                 <label for="email">Email</label>
